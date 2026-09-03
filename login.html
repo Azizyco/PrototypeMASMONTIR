@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Masuk - Mas Montir PAM IT</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ================= LOGIN ================= -->
+<div id="login">
+  <div class="hero">
+    <img class="bg" src="assets/polda-hq.webp" alt="Mapolda DIY">
+    <div class="ov"></div><div class="glow1"></div><div class="glow2"></div>
+    <div class="in">
+      <div class="brandrow">
+        <img class="logo" src="assets/logo-masmontir.webp" alt="Mas Montir PAM IT">
+        <div><b>Mas Montir PAM IT</b><span>Manajemen Sistem Monitoring Infrastruktur Jaringan PAM IT</span></div>
+      </div>
+      <h2>Pantau dan kelola layanan pengaduan jaringan PAM IT Polda DIY secara real-time.</h2>
+      <div class="foot">
+        <img src="assets/bid-tik.webp" alt="TIK Polri">
+        <p>Dikembangkan oleh Bidang Teknologi Informasi &amp; Komunikasi Polda DIY</p>
+      </div>
+    </div>
+  </div>
+  <div class="loginpanel">
+    <div class="card">
+      <div class="mob"><img src="assets/logo-masmontir.webp" style="height:40px;width:auto"><b style="color:#0f172a">Mas Montir PAM IT</b></div>
+      <h1>Masuk</h1>
+      <div class="sub">Mas Montir PAM IT</div>
+      <form class="loginform" onsubmit="return doLogin(event)">
+        <label><span class="lbl">Email</span><input id="email" type="email"></label>
+        <label><span class="lbl">Kata Sandi</span><input id="pass" type="password"></label>
+        <button class="btn" type="submit">Masuk</button>
+        <div class="forgot">Lupa kata sandi? Hubungi <b>Admin Bidang TIK Polda DIY</b> untuk reset.</div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Prototype tampilan: klik Masuk langsung ke dashboard (tanpa validasi/backend)
+  function doLogin(e){ if(e) e.preventDefault(); window.location.href = 'dashboard.html'; return false; }
+</script>
+</body>
+</html>

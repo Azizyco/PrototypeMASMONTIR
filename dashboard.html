@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard - Mas Montir PAM IT</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ================= APP ================= -->
+<div id="app">
+  <!-- SIDEBAR -->
+  <aside class="side">
+    <div class="top">
+      <img src="assets/logo-masmontir.webp" alt="Mas Montir PAM IT" style="height:40px;width:auto;flex:0 0 auto">
+      <div><b>Mas Montir PAM IT</b><small>Monitoring Jaringan PAM IT</small></div>
+    </div>
+    <div class="grp">Sistem</div>
+    <nav class="nav" id="nav">
+      <a data-view="dashboard" class="active"><span class="ic">▦</span> Dashboard</a>
+      <a data-view="gangguan"><span class="ic">◔</span> Pelaporan Gangguan</a>
+      <a data-view="pemeliharaan"><span class="ic">🛠</span> Riwayat Pemeliharaan</a>
+      <a data-view="kinerja"><span class="ic">📈</span> Monitoring Kinerja</a>
+      <a data-view="dokumen"><span class="ic">🗂</span> Dokumentasi Digital</a>
+      <a data-view="laporan"><span class="ic">📊</span> Laporan &amp; Statistik</a>
+      <a data-view="pencarian"><span class="ic">🔍</span> Pencarian Cepat</a>
+      <a data-view="saran"><span class="ic">💬</span> Saran Masukan</a>
+      <a data-view="petugas"><span class="ic">👥</span> Petugas</a>
+      <div class="grp">Inventaris Jaringan</div>
+      <a data-view="gedung"><span class="ic">🏢</span> Gedung</a>
+      <a data-view="ruangan"><span class="ic">🚪</span> Ruangan</a>
+      <a data-view="wmr"><span class="ic">📶</span> WMR</a>
+      <a data-view="ap"><span class="ic">📡</span> Access Point</a>
+      <a data-view="perangkat"><span class="ic">🖥</span> Perangkat</a>
+    </nav>
+    <div class="me"><div class="av">A</div><div><b>Admin</b><small>Bid TIK Polda DIY</small></div>
+      <button class="logout" onclick="doLogout()">Keluar</button></div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="topbar">
+      <h1 id="pageTitle">Dashboard</h1>
+      <div class="spacer"></div>
+      <div class="chip" id="periodChip">Periode: Agustus 2026</div>
+      <div class="sat">🏛 Satker:
+        <select class="mini"><option>Semua Satker</option><option>Mapolda DIY</option><option>Polresta Yogyakarta</option><option>Polres Bantul</option><option>Polres Kulon Progo</option><option>Polres Gunungkidul</option></select>
+      </div>
+    </div>
+
+    <!-- ===== DASHBOARD ===== -->
+    <section data-view="dashboard">
+      <div class="cards">
+        <div class="stat"><i class="i-blue">Σ</i><div class="lab">Total Laporan</div><div class="val">248</div><div class="tr" style="color:#16a34a">▲ 12% dari bulan lalu</div></div>
+        <div class="stat"><i class="i-slate">!</i><div class="lab">Laporan Baru</div><div class="val">18</div><div class="tr" style="color:#64748b">Menunggu ditinjau</div></div>
+        <div class="stat"><i class="i-amber">⏳</i><div class="lab">Sedang Diproses</div><div class="val">31</div><div class="tr" style="color:#d97706">Ditangani teknisi</div></div>
+        <div class="stat"><i class="i-green">✓</i><div class="lab">Selesai</div><div class="val">199</div><div class="tr" style="color:#16a34a">Penyelesaian 80%</div></div>
+      </div>
+      <div class="row2">
+        <div class="panel">
+          <h3>Tren Laporan Gangguan</h3><div class="cap">Jumlah laporan per bulan berdasarkan status</div>
+          <div class="chart">
+            <div class="col"><div class="stack" style="height:70px"><div class="s-green" style="height:60%"></div><div class="s-amber" style="height:25%"></div><div class="s-blue" style="height:15%"></div></div><small>Mar</small></div>
+            <div class="col"><div class="stack" style="height:95px"><div class="s-green" style="height:62%"></div><div class="s-amber" style="height:22%"></div><div class="s-blue" style="height:16%"></div></div><small>Apr</small></div>
+            <div class="col"><div class="stack" style="height:120px"><div class="s-green" style="height:66%"></div><div class="s-amber" style="height:20%"></div><div class="s-blue" style="height:14%"></div></div><small>Mei</small></div>
+            <div class="col"><div class="stack" style="height:150px"><div class="s-green" style="height:70%"></div><div class="s-amber" style="height:18%"></div><div class="s-blue" style="height:12%"></div></div><small>Jun</small></div>
+            <div class="col"><div class="stack" style="height:135px"><div class="s-green" style="height:68%"></div><div class="s-amber" style="height:20%"></div><div class="s-blue" style="height:12%"></div></div><small>Jul</small></div>
+            <div class="col"><div class="stack" style="height:170px"><div class="s-green" style="height:72%"></div><div class="s-amber" style="height:18%"></div><div class="s-blue" style="height:10%"></div></div><small>Agu</small></div>
+          </div>
+          <div class="legend"><span><i class="sw" style="background:#3b82f6"></i>Baru</span><span><i class="sw" style="background:#f59e0b"></i>Diproses</span><span><i class="sw" style="background:#22c55e"></i>Selesai</span></div>
+        </div>
+        <div class="panel">
+          <h3>Kategori Gangguan</h3><div class="cap">Distribusi jenis laporan</div>
+          <div class="donut"><div class="hole"><div><b>248</b><br><small>total</small></div></div></div>
+          <div class="dl">
+            <span><i class="sw" style="background:#3b82f6"></i>Mati Total <b>42%</b></span>
+            <span><i class="sw" style="background:#f59e0b"></i>Lemot / Lambat <b>26%</b></span>
+            <span><i class="sw" style="background:#22c55e"></i>Perangkat Rusak <b>20%</b></span>
+            <span><i class="sw" style="background:#ef4444"></i>Lainnya <b>12%</b></span>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Laporan Terbaru</h3><div class="cap">Klik "Tinjau" untuk melihat detail</div>
+        <table>
+          <thead><tr><th>Kode Tiket</th><th>Pelapor</th><th>Lokasi</th><th>Kategori</th><th>Status</th><th>Tanggal</th><th></th></tr></thead>
+          <tbody id="recentBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== PELAPORAN GANGGUAN ===== -->
+    <section data-view="gangguan" class="hidden">
+      <div class="toolbar">
+        <input placeholder="Cari kode tiket / no HP...">
+        <select><option>Semua Status</option><option>Baru</option><option>Diproses</option><option>Selesai</option><option>Eskalasi</option></select>
+        <select><option>Semua Kategori</option><option>Mati Total</option><option>Lemot / Lambat</option><option>Perangkat Rusak</option></select>
+        <input type="date">
+      </div>
+      <div class="panel">
+        <table>
+          <thead><tr><th>Kode Tiket</th><th>Pelapor</th><th>No HP</th><th>Lokasi</th><th>Kategori</th><th>Status</th><th>Tanggal</th><th style="text-align:right">Aksi</th></tr></thead>
+          <tbody id="gangguanBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== GANGGUAN DETAIL ===== -->
+    <section data-view="gangguan-detail" class="hidden">
+      <button class="back" onclick="showView('gangguan')">← Kembali ke Pelaporan Gangguan</button>
+      <div class="panel" style="margin-bottom:14px">
+        <h3 id="dtKode">PAM-IT-20260820-3929</h3><div class="cap">Detail laporan gangguan</div>
+        <dl class="kv">
+          <dt>Pelapor</dt><dd id="dtPelapor">Penata Nurwijayanto</dd>
+          <dt>No. WhatsApp</dt><dd>0815-7973-052</dd>
+          <dt>Lokasi / Satker</dt><dd id="dtLokasi">Karo SDM Polda DIY</dd>
+          <dt>SSID</dt><dd>PAM_IT_POLDA_DI_YOGYAKARTA</dd>
+          <dt>Kategori</dt><dd id="dtKategori">Lemot / Lambat</dd>
+          <dt>Deskripsi</dt><dd>Koneksi internet sangat lambat sejak pagi di ruang kerja.</dd>
+        </dl>
+      </div>
+      <div class="panel">
+        <h3>Tindak Lanjut</h3><div class="cap">Perbarui status &amp; catatan penanganan</div>
+        <div class="form-grid">
+          <div><label>Status</label><select><option>Baru</option><option selected>Diproses</option><option>Selesai</option><option>Eskalasi</option></select></div>
+          <div><label>Petugas Penangan</label><input value="Teknisi Andi"></div>
+          <div class="full"><label>Diagnosa</label><textarea rows="2">Access point overload, perlu restart &amp; penataan kanal.</textarea></div>
+          <div class="full"><label>Tindakan</label><textarea rows="2">Restart AP dan konfigurasi ulang kanal WiFi.</textarea></div>
+          <div><label>Tautkan ke Aset (opsional)</label><select><option>Tidak ditautkan</option><option>Access Point</option><option>Perangkat</option></select></div>
+          <div><label>Pilih aset</label><select><option>Pilih aset...</option><option>AP-Lantai2-Karo SDM</option></select></div>
+        </div>
+        <div style="margin-top:16px"><button class="btn-add" onclick="saveTindak()">Simpan</button></div>
+      </div>
+    </section>
+
+    <!-- ===== RIWAYAT PEMELIHARAAN ===== -->
+    <section data-view="pemeliharaan" class="hidden">
+      <div class="toolbar"><input placeholder="Cari aset..."><select><option>Semua Jenis</option><option>Preventif</option><option>Korektif</option></select><div class="spacer" style="flex:1"></div><button class="btn-add" onclick="openModal('Tambah Riwayat Pemeliharaan')">+ Tambah</button></div>
+      <div class="panel">
+        <table>
+          <thead><tr><th>Tanggal</th><th>Aset</th><th>Jenis</th><th>Uraian</th><th>Petugas</th><th style="text-align:right">Aksi</th></tr></thead>
+          <tbody>
+            <tr><td>18/08/2026</td><td>AP-Lantai2-SPKT</td><td>Preventif</td><td>Pembersihan &amp; cek sinyal</td><td>Teknisi Budi</td><td style="text-align:right"><button class="link">Edit</button><button class="link red">Hapus</button></td></tr>
+            <tr><td>12/08/2026</td><td>Switch-Core-Mapolda</td><td>Korektif</td><td>Ganti port bermasalah</td><td>Teknisi Andi</td><td style="text-align:right"><button class="link">Edit</button><button class="link red">Hapus</button></td></tr>
+            <tr><td>05/08/2026</td><td>Router-Polres Bantul</td><td>Preventif</td><td>Update firmware</td><td>Teknisi Rani</td><td style="text-align:right"><button class="link">Edit</button><button class="link red">Hapus</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== MONITORING KINERJA ===== -->
+    <section data-view="kinerja" class="hidden">
+      <div class="toolbar"><input placeholder="Cari aset..."><div class="spacer" style="flex:1"></div><button class="btn-add" onclick="openModal('Tambah Data Kinerja')">+ Tambah</button></div>
+      <div class="panel">
+        <table>
+          <thead><tr><th>Tanggal</th><th>Aset</th><th>Uptime</th><th>Latensi</th><th>Status</th><th style="text-align:right">Aksi</th></tr></thead>
+          <tbody>
+            <tr><td>20/08/2026</td><td>AP-Gedung Utama</td><td>99.8%</td><td>12 ms</td><td><span class="tag t-selesai">Baik</span></td><td style="text-align:right"><button class="link">Edit</button><button class="link red">Hapus</button></td></tr>
+            <tr><td>19/08/2026</td><td>Router-Polresta Yogya</td><td>97.2%</td><td>34 ms</td><td><span class="tag t-proses">Sedang</span></td><td style="text-align:right"><button class="link">Edit</button><button class="link red">Hapus</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== DOKUMENTASI DIGITAL ===== -->
+    <section data-view="dokumen" class="hidden">
+      <div class="toolbar"><input placeholder="Cari dokumen..."><div class="spacer" style="flex:1"></div><button class="btn-add" onclick="openModal('Unggah Dokumen')">+ Unggah</button></div>
+      <div class="panel">
+        <table>
+          <thead><tr><th>Nama Dokumen</th><th>Aset</th><th>Tipe</th><th>Ukuran</th><th>Tanggal</th><th style="text-align:right">Aksi</th></tr></thead>
+          <tbody>
+            <tr><td><button class="link">Topologi_Jaringan_Mapolda.pdf</button></td><td>Mapolda DIY</td><td>PDF</td><td>2.4 MB</td><td>14/08/2026</td><td style="text-align:right"><button class="link">Edit</button><button class="link red">Hapus</button></td></tr>
+            <tr><td><button class="link">Manual_AP_Cisco.docx</button></td><td>AP-Gedung Utama</td><td>DOCX</td><td>780 KB</td><td>10/08/2026</td><td style="text-align:right"><button class="link">Edit</button><button class="link red">Hapus</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== LAPORAN & STATISTIK ===== -->
+    <section data-view="laporan" class="hidden">
+      <div class="tabs" id="lapTabs">
+        <button class="active">Gangguan Jaringan</button><button>Riwayat Pemeliharaan</button><button>Monitoring Kinerja</button><button>Dokumentasi Digital</button>
+      </div>
+      <div class="toolbar">
+        <input type="date"><input type="date"><select><option>Semua Bulan</option><option>Agustus 2026</option></select>
+        <button class="btn-ghost">Tampilkan</button>
+        <div class="spacer" style="flex:1"></div>
+        <button class="btn-ghost" onclick="toast('Mengekspor PDF...')">Export PDF</button>
+        <button class="btn-ghost" onclick="toast('Mengekspor Word...')">Export Word</button>
+        <button class="btn-ghost" onclick="toast('Mengekspor Excel...')">Export Excel</button>
+      </div>
+      <div class="panel">
+        <h3>Rekap Laporan Gangguan Jaringan</h3><div class="cap">Periode: 1–31 Agustus 2026</div>
+        <table>
+          <thead><tr><th>No</th><th>Kode Tiket</th><th>Lokasi</th><th>Kategori</th><th>Status</th><th>Tanggal</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td class="kode">PAM-IT-20260820-3929</td><td>Karo SDM Polda DIY</td><td>Lemot / Lambat</td><td>Diproses</td><td>20/08/2026</td></tr>
+            <tr><td>2</td><td class="kode">PAM-IT-20260819-6963</td><td>Polresta Yogyakarta</td><td>Perangkat Rusak</td><td>Selesai</td><td>19/08/2026</td></tr>
+            <tr><td>3</td><td class="kode">PAM-IT-20260817-9117</td><td>Polres Kulon Progo</td><td>Lainnya</td><td>Selesai</td><td>17/08/2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== PENCARIAN CEPAT ===== -->
+    <section data-view="pencarian" class="hidden">
+      <div class="panel">
+        <h3>Pencarian Cepat</h3><div class="cap">Cari laporan, aset, atau petugas</div>
+        <input style="max-width:420px;border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-size:14px;font-family:inherit" placeholder="Ketik kata kunci...">
+        <p style="color:#94a3b8;font-size:13px;margin-top:16px">Ketik untuk mulai mencari. (Prototype tampilan)</p>
+      </div>
+    </section>
+
+    <!-- ===== SARAN MASUKAN ===== -->
+    <section data-view="saran" class="hidden">
+      <div class="panel">
+        <h3>Saran &amp; Masukan</h3><div class="cap">Masukan dari masyarakat/personel</div>
+        <table>
+          <thead><tr><th>Nama</th><th>No HP</th><th>Isi Masukan</th><th>Tanggal</th></tr></thead>
+          <tbody>
+            <tr><td>Anonim</td><td>0812-xxxx</td><td>Tolong tambah access point di lobby.</td><td>18/08/2026</td></tr>
+            <tr><td>Briptu Sari</td><td>0813-xxxx</td><td>WiFi ruang rapat sering putus.</td><td>15/08/2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== PETUGAS ===== -->
+    <section data-view="petugas" class="hidden">
+      <div class="toolbar"><input placeholder="Cari petugas..."><div class="spacer" style="flex:1"></div><button class="btn-add" onclick="openModal('Tambah Petugas')">+ Tambah Petugas</button></div>
+      <div class="panel">
+        <table>
+          <thead><tr><th>Nama</th><th>Email</th><th>Role</th><th>Satker</th><th style="text-align:right">Aksi</th></tr></thead>
+          <tbody>
+            <tr><td>Admin</td><td>admin@bidtik.polri.go.id</td><td><span class="pill-role">ADMIN</span></td><td>Bid TIK</td><td style="text-align:right"><button class="link">Edit</button></td></tr>
+            <tr><td>Teknisi Andi</td><td>andi@bidtik.polri.go.id</td><td><span class="pill-role">TEKNISI</span></td><td>Bid TIK</td><td style="text-align:right"><button class="link">Edit</button><button class="link red">Hapus</button></td></tr>
+            <tr><td>Operator Rani</td><td>rani@bidtik.polri.go.id</td><td><span class="pill-role">OPERATOR</span></td><td>Polres Bantul</td><td style="text-align:right"><button class="link">Edit</button><button class="link red">Hapus</button></td></tr>
+            <tr><td>Kabid TIK</td><td>kabid@bidtik.polri.go.id</td><td><span class="pill-role">PIMPINAN</span></td><td>Bid TIK</td><td style="text-align:right"><button class="link">Edit</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== INVENTARIS: GEDUNG ===== -->
+    <section data-view="gedung" class="hidden">
+      <div class="toolbar"><input placeholder="Cari gedung..."><div class="spacer" style="flex:1"></div><button class="btn-add" onclick="openModal('Tambah Gedung')">+ Tambah</button></div>
+      <div class="panel"><table>
+        <thead><tr><th>Nama Gedung</th><th>Satker</th><th>Jumlah Ruangan</th><th style="text-align:right">Aksi</th></tr></thead>
+        <tbody>
+          <tr><td>Gedung Utama Mapolda</td><td>Mapolda DIY</td><td>24</td><td style="text-align:right"><button class="link">Detail</button><button class="link red">Hapus</button></td></tr>
+          <tr><td>Gedung SPN</td><td>Mapolda DIY</td><td>8</td><td style="text-align:right"><button class="link">Detail</button><button class="link red">Hapus</button></td></tr>
+          <tr><td>Mapolres Bantul</td><td>Polres Bantul</td><td>12</td><td style="text-align:right"><button class="link">Detail</button><button class="link red">Hapus</button></td></tr>
+        </tbody></table></div>
+    </section>
+    <!-- ===== INVENTARIS: RUANGAN ===== -->
+    <section data-view="ruangan" class="hidden">
+      <div class="toolbar"><input placeholder="Cari ruangan..."><div class="spacer" style="flex:1"></div><button class="btn-add" onclick="openModal('Tambah Ruangan')">+ Tambah</button></div>
+      <div class="panel"><table>
+        <thead><tr><th>Nama Ruangan</th><th>Gedung</th><th>Jumlah Perangkat</th><th style="text-align:right">Aksi</th></tr></thead>
+        <tbody>
+          <tr><td>Ruang SPKT</td><td>Gedung Utama Mapolda</td><td>6</td><td style="text-align:right"><button class="link">Detail</button><button class="link red">Hapus</button></td></tr>
+          <tr><td>Ruang Karo SDM</td><td>Gedung Utama Mapolda</td><td>4</td><td style="text-align:right"><button class="link">Detail</button><button class="link red">Hapus</button></td></tr>
+        </tbody></table></div>
+    </section>
+    <!-- ===== INVENTARIS: WMR ===== -->
+    <section data-view="wmr" class="hidden">
+      <div class="toolbar"><input placeholder="Cari WMR..."><div class="spacer" style="flex:1"></div><button class="btn-add" onclick="openModal('Tambah WMR')">+ Tambah</button></div>
+      <div class="panel"><table>
+        <thead><tr><th>Nama WMR</th><th>Ruangan</th><th>Jumlah AP</th><th style="text-align:right">Aksi</th></tr></thead>
+        <tbody>
+          <tr><td>WMR-Lantai 2</td><td>Ruang SPKT</td><td>3</td><td style="text-align:right"><button class="link">Detail</button><button class="link red">Hapus</button></td></tr>
+        </tbody></table></div>
+    </section>
+    <!-- ===== INVENTARIS: ACCESS POINT ===== -->
+    <section data-view="ap" class="hidden">
+      <div class="toolbar"><input placeholder="Cari access point..."><div class="spacer" style="flex:1"></div><button class="btn-add" onclick="openModal('Tambah Access Point')">+ Tambah</button></div>
+      <div class="panel"><table>
+        <thead><tr><th>SSID</th><th>WMR</th><th>Status</th><th style="text-align:right">Aksi</th></tr></thead>
+        <tbody>
+          <tr><td>PAM_IT_POLDA_DI_YOGYAKARTA</td><td>WMR-Lantai 2</td><td><span class="tag t-selesai">Online</span></td><td style="text-align:right"><button class="link">Detail</button><button class="link red">Hapus</button></td></tr>
+          <tr><td>PAM_IT_Guest</td><td>WMR-Lantai 2</td><td><span class="tag t-selesai">Online</span></td><td style="text-align:right"><button class="link">Detail</button><button class="link red">Hapus</button></td></tr>
+        </tbody></table></div>
+    </section>
+    <!-- ===== INVENTARIS: PERANGKAT ===== -->
+    <section data-view="perangkat" class="hidden">
+      <div class="toolbar"><input placeholder="Cari perangkat..."><div class="spacer" style="flex:1"></div><button class="btn-add" onclick="openModal('Tambah Perangkat')">+ Tambah</button></div>
+      <div class="panel"><table>
+        <thead><tr><th>Nama</th><th>Jenis</th><th>Ruangan</th><th style="text-align:right">Aksi</th></tr></thead>
+        <tbody>
+          <tr><td>Switch-Core-01</td><td>Switch</td><td>Ruang Server</td><td style="text-align:right"><button class="link">Detail</button><button class="link red">Hapus</button></td></tr>
+          <tr><td>Router-Mikrotik-01</td><td>Router</td><td>Ruang Server</td><td style="text-align:right"><button class="link">Detail</button><button class="link red">Hapus</button></td></tr>
+        </tbody></table></div>
+    </section>
+  </main>
+</div>
+
+<!-- MODAL (generic) -->
+<div id="modal" class="modal hidden">
+  <div class="box">
+    <h3 id="modalTitle">Tambah Data</h3>
+    <div class="form-grid">
+      <div class="full"><label>Nama</label><input placeholder="Masukkan nama..."></div>
+      <div><label>Kategori</label><select><option>Pilih...</option><option>Opsi A</option><option>Opsi B</option></select></div>
+      <div><label>Satker</label><select><option>Mapolda DIY</option><option>Polres Bantul</option></select></div>
+      <div class="full"><label>Keterangan</label><textarea rows="2" placeholder="Opsional..."></textarea></div>
+    </div>
+    <div class="actions"><button class="btn-ghost" onclick="closeModal()">Batal</button><button class="btn-add" onclick="closeModal();toast('Data berhasil disimpan (prototype)')">Simpan</button></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#002936;color:#fff;padding:11px 20px;border-radius:10px;font-size:13px;opacity:0;transition:.25s;pointer-events:none;z-index:60"></div>
+
+<script>
+  // ---- dummy data ----
+  const laporan = [
+    ['PAM-IT-20260820-3929','Penata Nurwijayanto','08157973052','Karo SDM Polda DIY','Lemot / Lambat','proses','Diproses','20/08/2026'],
+    ['PAM-IT-20260819-6963','Iptu Dwi','08164264312','Polresta Yogyakarta','Perangkat Rusak','selesai','Selesai','19/08/2026'],
+    ['PAM-IT-20260819-1180','Aiptu Budi S.','08123456789','Polres Bantul','Mati Total','baru','Baru','19/08/2026'],
+    ['PAM-IT-20260818-4472','Briptu Rani','08221800474','Bid TIK Polda DIY','Tidak Bisa Login','proses','Diproses','18/08/2026'],
+    ['PAM-IT-20260817-9117','Bripka Andi','08232931968','Polres Kulon Progo','Lainnya','selesai','Selesai','17/08/2026'],
+  ];
+  const tag = s => `<span class="tag t-${s}">${ {baru:'Baru',proses:'Diproses',selesai:'Selesai',eskalasi:'Eskalasi'}[s] }</span>`;
+
+  function renderTables(){
+    document.getElementById('recentBody').innerHTML = laporan.map((r,i)=>`
+      <tr><td class="kode">${r[0]}</td><td>${r[1]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${tag(r[5])}</td><td>${r[7]}</td>
+      <td><button class="link" onclick="openDetail(${i})">Tinjau</button></td></tr>`).join('');
+    document.getElementById('gangguanBody').innerHTML = laporan.map((r,i)=>`
+      <tr><td class="kode">${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${tag(r[5])}</td><td>${r[7]}</td>
+      <td style="text-align:right"><button class="link" onclick="openDetail(${i})">Tinjau</button><button class="link red" onclick="confirmDelete()">Hapus</button></td></tr>`).join('');
+  }
+
+  const titles = {dashboard:'Dashboard',gangguan:'Pelaporan Gangguan','gangguan-detail':'Detail Laporan',pemeliharaan:'Riwayat Pemeliharaan',kinerja:'Monitoring Kinerja',dokumen:'Dokumentasi Digital',laporan:'Laporan & Statistik',pencarian:'Pencarian Cepat',saran:'Saran Masukan',petugas:'Petugas',gedung:'Gedung',ruangan:'Ruangan',wmr:'WMR',ap:'Access Point',perangkat:'Perangkat'};
+
+  function showView(v){
+    document.querySelectorAll('.main section').forEach(s=>s.classList.toggle('hidden', s.dataset.view!==v));
+    document.getElementById('pageTitle').textContent = titles[v] || 'Dashboard';
+    document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('active', a.dataset.view===v || (v==='gangguan-detail'&&a.dataset.view==='gangguan')));
+    document.querySelector('.main').scrollTop=0; window.scrollTo(0,0);
+  }
+  document.getElementById('nav').addEventListener('click',e=>{
+    const a=e.target.closest('a[data-view]'); if(a) showView(a.dataset.view);
+  });
+
+  function openDetail(i){
+    const r=laporan[i];
+    document.getElementById('dtKode').textContent=r[0];
+    document.getElementById('dtPelapor').textContent=r[1];
+    document.getElementById('dtLokasi').textContent=r[3];
+    document.getElementById('dtKategori').textContent=r[4];
+    showView('gangguan-detail');
+  }
+  function saveTindak(){ toast('Tindak lanjut tersimpan. Notifikasi WhatsApp dikirim ke pelapor.'); showView('gangguan'); }
+  function confirmDelete(){ if(confirm('Hapus laporan ini secara permanen? (prototype)')) toast('Laporan dihapus (prototype)'); }
+
+  // tabs laporan
+  document.getElementById('lapTabs').addEventListener('click',e=>{
+    if(e.target.tagName==='BUTTON'){ document.querySelectorAll('#lapTabs button').forEach(b=>b.classList.remove('active')); e.target.classList.add('active'); }
+  });
+
+  // logout -> kembali ke login.html
+  function doLogout(){ window.location.href = 'login.html'; }
+
+  // modal + toast
+  function openModal(t){ document.getElementById('modalTitle').textContent=t; document.getElementById('modal').classList.remove('hidden'); }
+  function closeModal(){ document.getElementById('modal').classList.add('hidden'); }
+  let toTimer; function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.style.opacity=1; clearTimeout(toTimer); toTimer=setTimeout(()=>t.style.opacity=0,2200); }
+
+  renderTables();
+</script>
+</body>
+</html>
